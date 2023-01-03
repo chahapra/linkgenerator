@@ -100,11 +100,11 @@ function makePlacementNames(parsedata) {
 
 
 		//machine link
-		var machinelink = "https://api.mchnad.com/clk/95dc8a68-69f0-4471-b6de-6043a9247f48/network/" + siteresult.ftid + "/" + appresult.appid + "/unknown/[ftqs:[machineclick]]/redirect/";
+		//var machinelink = "https://api.mchnad.com/clk/95dc8a68-69f0-4471-b6de-6043a9247f48/network/" + siteresult.ftid + "/" + appresult.appid + "/unknown/[ftqs:[machineclick]]/redirect/";
 
 
 		console.log(networkName);
-		console.log(machinelink);
+		//console.log(machinelink);
 		console.log(appresult.click);
 		console.log(appresult.imp);
 		console.log(appresult.nativeurl);
@@ -149,13 +149,13 @@ function makePlacementNames(parsedata) {
 		switch (platform.toLowerCase()) {
 			case "ios":
 			landingPage = iosLP;
-			finalLink = buildFinalLink(machinelink, tagType, appresult.click, appresult.imp, placement, amsSub4, versionID, networkresult.iosclick, landingPage, networkresult.iosimp, utmParamsIOS);
+			finalLink = buildFinalLink(tagType, appresult.click, appresult.imp, placement, amsSub4, versionID, networkresult.iosclick, landingPage, networkresult.iosimp, utmParamsIOS);
 			nonafLink = (landingPage.startsWith("http") ? landingPage + utmParamsIOS : appresult.nativeurl);
 			finalImpLink = appresult.imp + "c=" + placement + amsSub4 + "&" + networkresult.iosimp;
 			break;
 			case "and":
 			landingPage = andLP;
-			finalLink = buildFinalLink(machinelink, tagType, appresult.click, appresult.imp, placement, amsSub4, versionID, networkresult.andclick, landingPage, networkresult.andimp, utmParamsAND);
+			finalLink = buildFinalLink(tagType, appresult.click, appresult.imp, placement, amsSub4, versionID, networkresult.andclick, landingPage, networkresult.andimp, utmParamsAND);
 			nonafLink = (landingPage.startsWith("http") ? landingPage + utmParamsAND : appresult.nativeurl);
 			finalImpLink = appresult.imp + "c=" + placement + amsSub4 + "&" + networkresult.andimp;
 			break;
@@ -225,10 +225,10 @@ function makePlacementNames(parsedata) {
 	makeTable(results);
 }
 
-function buildFinalLink(machinelink, tagType, appLink, appimp, placement, amsSub4, versionID, networkParams, landingPage, networkParamsImps, utmParams) {
-	if (tagType.includes("Machine")){
-		appLink = machinelink + appLink;
-	}
+function buildFinalLink(tagType, appLink, appimp, placement, amsSub4, versionID, networkParams, landingPage, networkParamsImps, utmParams) {
+	// if (tagType.includes("Machine")){
+	// 	appLink = machinelink + appLink;
+	// }
 
 	if (landingPage.startsWith("http")){
 		encodedUTM = encodeURIComponent(utmParams);
