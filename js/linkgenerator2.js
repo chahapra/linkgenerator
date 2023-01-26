@@ -246,11 +246,11 @@ function buildFinalOneLink(appLink, placement, amsSub4, versionID, networkParams
 	utmParamsDESK = encodeURIComponent(utmParamsDESK);
 
 	if ((deskLP.startsWith("http")) && (iosLP.startsWith("http")) && (andLP.startsWith("http"))){
-		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_android_url=" + andLP + utmParamsAND + "&af_ios_url=" + iosLP + utmParamsIOS + "&af_web_dp=" + deskLP + utmParamsDESK;
+		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_android_url=" + andLP + utmParamsAND + "&af_r=appslfyer" + "&af_ios_url=" + iosLP + utmParamsIOS + "&af_r=appslfyer" + "&af_web_dp=" + deskLP + utmParamsDESK + "&af_r=appslfyer";
 	}else if ((deskLP.startsWith("http")) && (iosLP.startsWith("http")) && (andLP == "")){
-		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_ios_url=" + iosLP + utmParamsIOS + "&af_web_dp=" + deskLP + utmParamsDESK;
+		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_ios_url=" + iosLP + utmParamsIOS + "&af_r=appslfyer" + "&af_web_dp=" + deskLP + utmParamsDESK + "&af_r=appslfyer";
 	}else if ((deskLP.startsWith("http")) && (iosLP == "") && (andLP.startsWith("http"))){
-		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_android_url=" + andLP + utmParamsAND + "&af_web_dp=" + deskLP + utmParamsDESK;
+		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_android_url=" + andLP + utmParamsAND + "&af_r=appslfyer" + "&af_web_dp=" + deskLP + utmParamsDESK + "&af_r=appslfyer";
 	}else if ((deskLP.startsWith("http")) && (iosLP == "") && (andLP == "")){
 		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_web_dp=" + deskLP + utmParamsDESK;
 	}else {
