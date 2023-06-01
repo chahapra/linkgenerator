@@ -241,16 +241,16 @@ function buildFinalLink(tagType, appLink, appimp, placement, amsSub4, versionID,
 
 function buildFinalOneLink(appLink, placement, amsSub4, versionID, networkParams, iosLP, andLP, deskLP, networkParamsImps, utmParamsDESK, utmParamsAND, utmParamsIOS, channel) {
 	networkParams = networkParams + "&af_param_forwarding=false";
-	utmParamsAND = encodeURIComponent(utmParamsAND);
-	utmParamsIOS = encodeURIComponent(utmParamsIOS);
-	utmParamsDESK = encodeURIComponent(utmParamsDESK);
+	utmParamsAND = encodeURIComponent(utmParamsAND + "&af_r=appsflyer");
+	utmParamsIOS = encodeURIComponent(utmParamsIOS + "&af_r=appsflyer");
+	utmParamsDESK = encodeURIComponent(utmParamsDESK + "&af_r=appsflyer");
 
 	if ((deskLP.startsWith("http")) && (iosLP.startsWith("http")) && (andLP.startsWith("http"))){
-		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_android_url=" + andLP + utmParamsAND + "&af_r=appsflyer" + "&af_ios_url=" + iosLP + utmParamsIOS + "&af_r=appsflyer" + "&af_web_dp=" + deskLP + utmParamsDESK + "&af_r=appsflyer";
+		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_android_url=" + andLP + utmParamsAND  + "&af_ios_url=" + iosLP + utmParamsIOS  + "&af_web_dp=" + deskLP + utmParamsDESK ;
 	}else if ((deskLP.startsWith("http")) && (iosLP.startsWith("http")) && (andLP == "")){
-		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_ios_url=" + iosLP + utmParamsIOS + "&af_r=appsflyer" + "&af_web_dp=" + deskLP + utmParamsDESK + "&af_r=appsflyer";
+		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_ios_url=" + iosLP + utmParamsIOS  + "&af_web_dp=" + deskLP + utmParamsDESK ;
 	}else if ((deskLP.startsWith("http")) && (iosLP == "") && (andLP.startsWith("http"))){
-		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_android_url=" + andLP + utmParamsAND + "&af_r=appsflyer" + "&af_web_dp=" + deskLP + utmParamsDESK + "&af_r=appsflyer";
+		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_android_url=" + andLP + utmParamsAND  + "&af_web_dp=" + deskLP + utmParamsDESK ;
 	}else if ((deskLP.startsWith("http")) && (iosLP == "") && (andLP == "")){
 		finalLink = appLink + "c=" + placement + amsSub4 + "&" + networkParams + "&af_web_dp=" + deskLP + utmParamsDESK;
 	}else {
